@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/formulario.css" rel="stylesheet">
+    <title>Formulário</title>
+</head>
+<body>
+    <form action="/action_page.js" onsubmit="return validaForm()" name = "form1">
+        <h4>Qual é o seu estado civil?</h4>
+        <input type="radio" id="1" name="estado_civil" value="Solteiro">
+        <label for="1">Solteiro</label>
+        <input type="radio" id="2" name="estado_civil" value="Casado">
+        <label for="2">Casado</label>
+        <input type="radio" id="3" name="estado_civil" value="Viúvo">
+        <label for="3">Viúvo</label>
+
+        <h4>Qual é a sua idade?</h4>
+        <input type="radio" id="1" name="idade" value="menor que 18 anos">
+        <label for="1">menor que 18 anos</label><br>
+        <input type="radio" id="2" name="idade" value="entre 18 e 23 anos">
+        <label for="2">entre 18 e 23 anos</label><br>
+        <input type="radio" id="3" name="idade" value="entre 24 e 28 anos">
+        <label for="3">entre 24 e 28 anos</label><br>
+        <input type="radio" id="4" name="idade" value="maior que 28 anos">
+        <label for="4">maior que 28 anos</label>
+
+        <h4>Qual(is) esporte(s) você acompanha?</h4>
+        <p>Marque todas as opções que se aplicam:</p>
+        <input type="checkbox" id="1" name="esporte" value="Futebol">
+        <label for="1">Futebol</label>
+        <input type="checkbox" id="2" name="esporte" value="Vôlei">
+        <label for="2">Vôlei</label><br>
+        <input type="checkbox" id="3" name="esporte" value="Basquete">
+        <label for="3">Basquete</label>
+        <input type="checkbox" id="4" name="esporte" value="Polo Aquático">
+        <label for="4">Polo Aquático</label><br>
+        <input type="checkbox" id="5" name="esporte" value="Outro(s)">
+        <label for="5">Outro(s)</label><br>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+<script>
+    function validaForm() {
+        let campo = document.forms["form1"]["estado_civil"].value
+            if (campo == ""){
+                alert("Opção não selecionada!");
+
+                return false
+            }
+    }
+    function validaForm() {
+        let campo = document.forms["form1"]["idade"].value
+            if (campo == ""){
+                alert("Opção não selecionada!");
+
+                return false
+            }
+    }
+    function validaForm() {
+        let campo = document.forms["form1"]["esporte"].value
+            if (campo == ""){
+                alert("Opção não selecionada!");
+
+                return false
+            }
+    }
+</script>
+</html>
