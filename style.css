@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box-degrade{
+    width: 100%;
+    padding: 400px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to left,  rgb(12, 5, 37), rgb(17, 17, 48), rgb(16, 14, 14));
+    background-size: 500% 100%;
+    animation: degrade-animation 8s infinite alternate;
+}
+
+@keyframes degrade-animation {
+    0%{
+        background-position-x: 0%
+    }
+    100%{
+        background-position-x: 100%
+    }
+    
+}
+
+#titulo{
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.conteudo{
+    position: absolute;
+    width: 350px;
+    height: 730px;
+    top: 5%;
+    text-align: center;
+    padding: 3%;
+    background-image: linear-gradient(to right, rgb(12, 5, 37), rgb(17, 17, 48), rgb(16, 14, 14));
+    background-size: 500% 100%;
+    animation: degrade-animation 15s infinite alternate;
+    border-radius: 5%;
+}
+
+.inputs{
+    padding: 8px 5px;
+    background-color: rgba(18, 17, 17, 0.465);
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid rgba(193, 190, 190, 0);
+    font-size: 15px;
+    color: white;
+}
+
+.age-select{
+    color: lightgray;
+}
+
+#form{
+    color: gray;
+    padding: 5%;
+}
+
+.span-required{
+    display: none;
+    color: rgb(174, 47, 47);
+    font-size: 12px;
+    text-align: center;
+    padding-top: 2px;
+}
+
+#subtittle1{
+    color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 20px;
+    text-align: center;
+}
+
+#subtittle2{
+    color: white;
+    padding-top: 10%;
+    padding-bottom: 5%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.lang{
+    padding: 10px;
+}
+
+.submit-div{
+    padding-top: 7%;
+}
+
+button[type="submit"]{
+    background-color: rgba(52, 50, 50, 0.465);
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    padding: 1rem;
+    border-radius: 15%;
+}

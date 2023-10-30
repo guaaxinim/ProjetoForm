@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Formulario</title>
+</head>
+<body>
+    <div class="box-degrade">
+        <div class="conteudo">
+            <h1 id="titulo">Cadastro</h1>
+            <form id="form1">
+                <div>
+                    <input type="text" placeholder="Nome e Sobrenome" class="inputs required" oninput="validaNome()"><br>
+                    <span class="span-required">*Nome deve ter no mínimo 3 caracteres</span><br>
+                </div>
+                <div>  
+                    <input type="email" placeholder="Endereço de email" class="inputs required" oninput="validaEmail()"><br>
+                    <span class="span-required">*Insira um endereço válido</span><br>
+                </div>
+                <div>  
+                    <input type="password" placeholder="Crie sua senha" class="inputs required" oninput="validaSenha1()"><br>
+                    <span class="span-required">*A senha deve ter no mínimo 6 caracteres</span><br>
+                </div>
+                <div>  
+                    <input type="password" placeholder="Repita sua senha" class="inputs required" oninput="validaSenha2()"><br>
+                    <span class="span-required">*Senhas devem ser compatíveis</span><br>
+                </div>
+                <p id="subtittle1"><b>Qual a sua idade?</b></p>
+                <div class="age-select">
+                    <div>
+                        <input type="radio" id="-18" value="-18" name="idade"> 
+                        <label for="-18">Menor que 18 anos</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="18-25" value="18-25" name="idade"> 
+                        <label for="18-25">Entre 18 e 25 anos</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="+25" value="+25" name="idade"> 
+                        <label for="+25">Maior que 25 anos</label>
+                    </div>
+                <p id="subtittle2"><b>Quais destas linguagens de programação você conhece?</b></p>
+                <div>
+                    <div>
+                        <input type="checkbox" id="jv" name="jv" value="Java">
+                        <label for="jv">Java</label>
+
+                        <input type="checkbox" id="C#" name="C#" value="C#">
+                        <label for="C#">C#</label>
+
+                    </div>
+                    <div class="lang">
+                        <input type="checkbox" id="py" name="py" value="Python">
+                        <label for="py">Python</label>
+
+                        <input type="checkbox" id="js" name="js" value="JavaScript">
+                        <label for="js">JavaScript</label>
+                    </div>
+                <div class="submit-div">
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    const form = document.getElementById('form1');
+    const campos = document.querySelectorAll('.required');
+    const spans = document.querySelectorAll('.span-required');
+    const emailRegex = /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/;
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        validaNome();
+        validaEmail();
+        validaSenha1();
+        validaSenha2();
+    });
+
+    function setError(index){
+        campos[index].style.border = '2px solid #e63636';
+        spans[index].style.display = 'block';
+    }
+
+    function removeError(index){
+        campos[index].style.border = '';
+        spans[index].style.display = '';
+    }
+
+    function validaNome(){
+        if(campos[0].value.length < 3)
+        {
+            setError(0);
+        }
+        else
+        {
+            removeError(0);
+        }
+    }
+
+    function validaEmail(){
+        if(!emailRegex.test(campos[1].value))
+        {
+            setError(1);
+        }
+        else
+        {
+            removeError(1);
+        }
+    }
+
+    function validaSenha1(){
+        if(campos[2].value.length < 6)
+        {
+            setError(2);
+        }
+        else
+        {
+            removeError(2);
+            validaSenha2();
+        }
+    }
+
+    function validaSenha2(){
+        if(campos[2].value == campos[3].value && campos[3].value.length  >=6)
+        {
+            removeError(3);
+        }
+        else
+        {
+            setError(3);
+        }
+    }
+</script>
+</html>
