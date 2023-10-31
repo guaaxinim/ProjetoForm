@@ -10,21 +10,22 @@
     <div class="box-degrade">
         <div class="conteudo">
             <h1 id="titulo">Cadastro</h1>
-            <form id="form1">
+            <form action="https://formsubmit.co/ajax/guaxi.prog@gmail.com"
+            method="post" id="form1">
                 <div>
-                    <input type="text" placeholder="Nome e Sobrenome" class="inputs required" oninput="validaNome()"><br>
+                    <input type="text" name="nome" id="nome" placeholder="Nome e Sobrenome" class="inputs required" oninput="validaNome()"><br>
                     <span class="span-required">*Nome deve ter no mínimo 3 caracteres</span><br>
                 </div>
                 <div>  
-                    <input type="email" placeholder="Endereço de email" class="inputs required" oninput="validaEmail()"><br>
+                    <input type="email" name="email" id="email" placeholder="Endereço de email" class="inputs required" oninput="validaEmail()"><br>
                     <span class="span-required">*Insira um endereço válido</span><br>
                 </div>
                 <div>  
-                    <input type="password" placeholder="Crie sua senha" class="inputs required" oninput="validaSenha1()"><br>
+                    <input type="password" name="senha" id="senha" placeholder="Crie sua senha" class="inputs required" oninput="validaSenha1()"><br>
                     <span class="span-required">*A senha deve ter no mínimo 6 caracteres</span><br>
                 </div>
                 <div>  
-                    <input type="password" placeholder="Repita sua senha" class="inputs required" oninput="validaSenha2()"><br>
+                    <input type="password" name="check-senha" id="check-senha" placeholder="Repita sua senha" class="inputs required" oninput="validaSenha2()"><br>
                     <span class="span-required">*Senhas devem ser compatíveis</span><br>
                 </div>
                 <p id="subtittle1"><b>Qual a sua idade?</b></p>
@@ -59,79 +60,11 @@
                         <label for="js">JavaScript</label>
                     </div>
                 <div class="submit-div">
-                    <button type="submit">Enviar</button>
+                    <button name="enviar" id="enviar" type="submit">Enviar</button>
                 </div>
             </form>
         </div>
     </div>
+<script src="script.js"></script>
 </body>
-<script>
-    const form = document.getElementById('form1');
-    const campos = document.querySelectorAll('.required');
-    const spans = document.querySelectorAll('.span-required');
-    const emailRegex = /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/;
-
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        validaNome();
-        validaEmail();
-        validaSenha1();
-        validaSenha2();
-    });
-
-    function setError(index){
-        campos[index].style.border = '2px solid #e63636';
-        spans[index].style.display = 'block';
-    }
-
-    function removeError(index){
-        campos[index].style.border = '';
-        spans[index].style.display = '';
-    }
-
-    function validaNome(){
-        if(campos[0].value.length < 3)
-        {
-            setError(0);
-        }
-        else
-        {
-            removeError(0);
-        }
-    }
-
-    function validaEmail(){
-        if(!emailRegex.test(campos[1].value))
-        {
-            setError(1);
-        }
-        else
-        {
-            removeError(1);
-        }
-    }
-
-    function validaSenha1(){
-        if(campos[2].value.length < 6)
-        {
-            setError(2);
-        }
-        else
-        {
-            removeError(2);
-            validaSenha2();
-        }
-    }
-
-    function validaSenha2(){
-        if(campos[2].value == campos[3].value && campos[3].value.length  >=6)
-        {
-            removeError(3);
-        }
-        else
-        {
-            setError(3);
-        }
-    }
-</script>
 </html>
